@@ -1,0 +1,30 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type usersResponse {
+  id: ID!
+  first_name: String!
+  last_name: String!
+  role: String!
+  createdAt: String!
+}
+
+type customResponse {
+  message: String!
+}
+
+type Query {
+  findAll: [usersResponse!]!
+}
+
+type Mutation {
+  deleteOne(id: Float!): customResponse!
+  createUser(input: UserInput!): usersResponse!
+}
+
+input UserInput {
+  first_name: String!
+  last_name: String!
+  role: String!
+}
