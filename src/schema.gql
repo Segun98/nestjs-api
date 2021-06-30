@@ -2,8 +2,8 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type usersResponse {
-  id: ID!
+type User {
+  id: Float!
   first_name: String!
   last_name: String!
   role: String!
@@ -15,12 +15,12 @@ type customResponse {
 }
 
 type Query {
-  findAll: [usersResponse!]!
+  findAll: [User!]!
 }
 
 type Mutation {
   deleteOne(id: Float!): customResponse!
-  createUser(input: UserInput!): usersResponse!
+  createUser(input: UserInput!): User!
 }
 
 input UserInput {

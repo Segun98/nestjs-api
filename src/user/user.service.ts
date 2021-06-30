@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { UserInput } from './input/user.input';
-import { customResponse, usersResponse } from './dto/user.dto';
+import { customResponse } from './dto/user.dto';
 
 @Injectable()
 export class UsersService {
@@ -12,12 +12,12 @@ export class UsersService {
         private usersRepository: Repository<User>,
     ) { }
 
-    async createUser(createUser: UserInput): Promise<usersResponse> {
+    async createUser(createUser: UserInput): Promise<User> {
         const user = await this.usersRepository.save(createUser)
         return user
     }
 
-    async findAll(): Promise<usersResponse[]> {
+    async findAll(): Promise<User[]> {
         return await this.usersRepository.find({
             order: {
                 createdAt: "DESC"
